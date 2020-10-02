@@ -642,10 +642,10 @@ async def LadderFunc(number, ladderlist, channelVal):
 	result_ladder = random.sample(ladderlist, number)
 	lose_member = [item for item in ladderlist if item not in result_ladder]
 	result_ladderSTR = ','.join(map(str, result_ladder))
-	embed = discord.Embed(title  = "🎲 사다리! 묻고 더블로 가!",color=0x00ff00)
-	embed.add_field(name = "👥 참가자", value =  f"```fix\n{', '.join(ladderlist)}```", inline=False)
-	embed.add_field(name = "😍 당첨", value =  f"```fix\n{', '.join(result_ladder)}```")
-	embed.add_field(name = "😭 낙첨", value =  f"```{', '.join(lose_member)}```")
+	embed = discord.Embed(title  = "🎲 あみだあみだ",color=0x00ff00)
+	embed.add_field(name = "👥 参加者", value =  f"```fix\n{', '.join(ladderlist)}```", inline=False)
+	embed.add_field(name = "😍 winner", value =  f"```fix\n{', '.join(result_ladder)}```")
+	embed.add_field(name = "😭 loser", value =  f"```{', '.join(lose_member)}```")
 	await channelVal.send(embed=embed, tts=False)
 
 #data초기화
