@@ -2508,7 +2508,7 @@ class mainCog(commands.Cog):
 			race_val = []
 			random_pos = []
 			racing_result = []
-			output = ':camera: :camera: :camera: 신나는 레이싱! :camera: :camera: :camera:\n'
+			output = ':camera: :camera: :camera: 楽しいレーシング! :camera: :camera: :camera:\n'
 			#racing_unit = [':giraffe:', ':elephant:', ':tiger2:', ':hippopotamus:', ':crocodile:',':leopard:',':ox:', ':sheep:', ':pig2:',':dromedary_camel:',':dragon:',':rabbit2:'] #동물스킨
 			#racing_unit = [':red_car:', ':taxi:', ':bus:', ':trolleybus:', ':race_car:', ':police_car:', ':ambulance:', ':fire_engine:', ':minibus:', ':truck:', ':articulated_lorry:', ':tractor:', ':scooter:', ':manual_wheelchair:', ':motor_scooter:', ':auto_rickshaw:', ':blue_car:', ':bike:', ':helicopter:', ':steam_locomotive:']  #탈것스킨
 			#random.shuffle(racing_unit) 
@@ -2530,10 +2530,10 @@ class mainCog(commands.Cog):
 			field_size = 60
 			tmp_race_tab = 35 - len(racing_member)
 			if len(racing_member) <= 1:
-				await ctx.send('레이스 인원이 2명보다 작습니다.')
+				await ctx.send('人数が足りないです。.')
 				return
 			elif len(racing_member) >= 13:
-				await ctx.send('레이스 인원이 12명 초과입니다.')
+				await ctx.send('12人以上は行けません')
 				return
 			else :
 				race_val = random.sample(range(tmp_race_tab, tmp_race_tab+len(racing_member)), len(racing_member))
@@ -2562,13 +2562,13 @@ class mainCog(commands.Cog):
 				for i in range(len(racing_member)):
 					output +=  str_racing_field[i] + '\n'
 
-				result_race = await ctx.send(output + ':traffic_light: 3초 후 경주가 시작됩니다!')
+				result_race = await ctx.send(output + ':traffic_light: 3')
 				await asyncio.sleep(1)
-				await result_race.edit(content = output + ':traffic_light: 2초 후 경주가 시작됩니다!')
+				await result_race.edit(content = output + ':traffic_light: 2')
 				await asyncio.sleep(1)
-				await result_race.edit(content = output + ':traffic_light: 1초 후 경주가 시작됩니다!')
+				await result_race.edit(content = output + ':traffic_light: 1!')
 				await asyncio.sleep(1)
-				await result_race.edit(content = output + ':checkered_flag:  경주 시작!')								
+				await result_race.edit(content = output + ':checkered_flag:  start!')								
 
 				for i in range(len(racing_member)):
 					test = random.sample(range(2,field_size-2), race_info[i][2])
@@ -2580,9 +2580,9 @@ class mainCog(commands.Cog):
 
 				for j in range(len(random_pos[0])):
 					if j%2 == 0:
-						output =  ':camera: :camera_with_flash: :camera: 신나는 레이싱! :camera_with_flash: :camera: :camera_with_flash:\n'
+						output =  ':camera: :camera_with_flash: :camera: 楽しいレーシング！ :camera_with_flash: :camera: :camera_with_flash:\n'
 					else :
-						output =  ':camera_with_flash: :camera: :camera_with_flash: 신나는 레이싱! :camera: :camera_with_flash: :camera:\n'
+						output =  ':camera_with_flash: :camera: :camera_with_flash: 楽しいレーシング！ :camera: :camera_with_flash: :camera:\n'
 					str_racing_field = []
 					for i in range(len(racing_member)):
 						temp_pos = cur_pos[i]
@@ -2595,7 +2595,7 @@ class mainCog(commands.Cog):
 					for i in range(len(racing_member)):
 						output +=  str_racing_field[i] + '\n'
 					
-					await result_race.edit(content = output + ':checkered_flag:  경주 시작!')
+					await result_race.edit(content = output + ':checkered_flag:  start')
 				
 				for i in range(len(racing_field)):
 					fr.append(race_info[i][0])
@@ -2633,7 +2633,7 @@ class mainCog(commands.Cog):
 					
 				#print(result)
 				await asyncio.sleep(1)
-				return await result_race.edit(content = output + ':tada: 경주 종료!\n' + result_str)
+				return await result_race.edit(content = output + ':tada: race end!\n' + result_str)
 		else:
 			return
 
@@ -3003,7 +3003,7 @@ class mainCog(commands.Cog):
 		if ctx.message.channel.id != basicSetting[7] and ctx.message.channel.id != basicSetting[19]:
 			return
 
-		message_rock_paper_scissors : discord.message.Message = await ctx.send("안내면 진거 가위바위..")
+		message_rock_paper_scissors : discord.message.Message = await ctx.send("最初はグー！")
 		reaction_emoji : list = ["✌️", "✊", "✋"]
 
 		for emoji in reaction_emoji:
@@ -3014,23 +3014,23 @@ class mainCog(commands.Cog):
 		try:
 			reaction_result, user = await self.bot.wait_for('reaction_add', check = reaction_check, timeout = int(basicSetting[5]))
 		except asyncio.TimeoutError:
-			return await ctx.send(f"시간이 초과됐습니다. ")
+			return await ctx.send(f"time over ")
 		
 		bot_result : str = random.choice(reaction_emoji)
 		result_rock_paper_scissors : str = ""
 		
 		if reaction_result is None:
-			result_rock_paper_scissors = f"왜 안냄?"
+			result_rock_paper_scissors = f"???"
 		elif str(reaction_result) == bot_result:
-			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n🤔비겼다!"
+			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n🤔無勝負!"
 		elif str(reaction_result) == "✌️" and bot_result == "✋":
-			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n👍짝짝짝"
+			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n👍win!"
 		elif str(reaction_result) == "✊" and bot_result == "✌️":
-			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n👍짝짝짝"
+			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n👍win!"
 		elif str(reaction_result) == "✋" and bot_result == "✊":
-			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n👍짝짝짝"
+			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n👍win!"
 		else:
-			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n🤪저런.."
+			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n🤪負けばか"
 
 		return await ctx.send(result_rock_paper_scissors)
 
