@@ -1258,7 +1258,7 @@ class mainCog(commands.Cog):
 			command_list += ','.join(command[23]) + '\n'     #!보스탐
 			command_list += '[보스명]cut 또는 [보스명]cut 0000, 00:00\n'  
 			command_list += '[보스명] 컷 또는 [보스명] 컷 0000, 00:00\n'   
-			command_list += '[보스명]멍 또는 [보스명]멍 0000, 00:00\n'     
+			command_list += '[보스명]hajimahajima 또는 [보스명]hajimahajima 0000, 00:00\n'     
 			command_list += '[보스명]예상 또는 [보스명]예상 0000, 00:00\n' 
 			command_list += '[보스명]삭제\n'     
 			command_list += '[보스명]메모 [할말]\n'
