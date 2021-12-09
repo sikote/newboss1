@@ -3326,7 +3326,7 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 						tmp_bossTimeString[i] = bossTimeString[i] = nextTime.strftime('%H:%M:%S')
 						tmp_bossDateString[i] = bossDateString[i] = nextTime.strftime('%Y-%m-%d')
 						embed = discord.Embed(
-								description= '```다음 ' + bossData[i][0] + ' ' + bossTimeString[i] + '입니다.```',
+								description= '```next time ' + bossData[i][0] + ' ' + bossTimeString[i] + 'desu```',
 								color=0xff0000
 								)
 						await self.get_channel(channel).send(embed=embed, tts=False)
@@ -3340,7 +3340,7 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 						else:
 							bossData[i][6] = ''
 							
-						tmp_msg = bossData[i][0] +'hajimahajima'
+						tmp_msg = bossData[i][0] +'pass'
 						tmp_now = datetime.datetime.now() + datetime.timedelta(hours = int(basicSetting[0]))
 
 						if len(hello) > len(tmp_msg) + 3 :
@@ -3375,7 +3375,7 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 							tmp_bossTimeString[i] = bossTimeString[i] = temptime.strftime('%H:%M:%S')
 							tmp_bossDateString[i] = bossDateString[i] = temptime.strftime('%Y-%m-%d')
 							embed = discord.Embed(
-									description= '```다음 ' + bossData[i][0] + ' ' + bossTimeString[i] + '입니다.```',
+									description= '```next time ' + bossData[i][0] + ' ' + bossTimeString[i] + 'desu```',
 									color=0xff0000
 									)
 							await self.get_channel(channel).send(embed=embed, tts=False)
@@ -3394,7 +3394,7 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 								tmp_bossTimeString[i] = bossTimeString[i] = nextTime.strftime('%H:%M:%S')
 								tmp_bossDateString[i] = bossDateString[i] = nextTime.strftime('%Y-%m-%d')
 								embed = discord.Embed(
-										description= '```다음 ' + bossData[i][0] + ' ' + bossTimeString[i] + '입니다.```',
+										description= '```next time ' + bossData[i][0] + ' ' + bossTimeString[i] + 'desu```',
 										color=0xff0000
 										)
 								await self.get_channel(channel).send(embed=embed, tts=False)
